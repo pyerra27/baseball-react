@@ -12,24 +12,50 @@ import InputGroup from 'react-bootstrap/InputGroup'
 
 import DataTable from './DataTable'
 
+/**
+ * Displays tables showing a team's batting and pitching data
+ * over for a specific year. Uses DataTable component to build tables.
+ */
 function TeamData() {
+    /* stores team batting data */
     const [teamBatting, setTeamBatting] = useState([])
+
+    /* boolean to see if batting data is loading */
     const [battingLoadingData, setBattingLoadingData] = useState(true)
 
+    /* stores team pitching data */
     const [teamPitching, setTeamPitching] = useState([])
+
+    /* boolean to see if pitching data is loading */
     const [pitchingLoadingData, setPitchingLoadingData] = useState(true)
 
+    /* team name*/
     const [teamName, setTeamName] = useState("")
+
+    /* year to display data for */
     const [year, setYear] = useState(new Date().getFullYear())
+
+    /* years to choose from */
     const [availableYears, setAvailableYears] = useState([])
     
-    
+    /* team id from url */
     const {teamID} = useParams()
 
+    /**
+     * On component load, get the data needed for the page
+     */
     useEffect(() => {
         getData(teamID)
     }, [])
 
+
+    /**
+     * Get all of the data needed for the state of the component. Checks
+     * to make sure that teamID is associated with a valid team. If so load
+     * the data, if not display error to user.
+     * 
+     * @param teamID id of team
+     */
     const getData = (teamID) => {
         BaseballService.getFranchises().then(franchiseResponse => {
             let franchiseExists = false
@@ -51,6 +77,9 @@ function TeamData() {
         })
     }
 
+    /**
+     * Set up the avaiable years state variable
+     */
     const getAvailableYears = () => {
         let tempAvailableYears = []
         for (let i = year - 100; i <= year; i++) {
@@ -59,6 +88,11 @@ function TeamData() {
         setAvailableYears(tempAvailableYears)
     }
 
+    /**
+     * When year changes, reload data for new year
+     * 
+     * @param event event of changing year
+     */
     const onYearChange = (event) => {
         setYear(event.target.value)
 
@@ -66,6 +100,13 @@ function TeamData() {
         getTeamPitching(teamID, event.target.value)
     }
 
+    /**
+     * Load the team batting data using the getTeamBatting function from
+     * BaseballService
+     * 
+     * @param teamID id of team
+     * @param year year for data
+     */
     const getTeamBatting = (teamID, year) => {
         setTeamBatting([])
         setBattingLoadingData(true)
@@ -82,6 +123,13 @@ function TeamData() {
         })
     };
 
+    /**
+     * Load the team pitching data using the getTeamPitching function from
+     * BaseballService
+     * 
+     * @param teamID id of team
+     * @param year year for data
+     */
     const getTeamPitching = (teamID, year) => {
         setTeamPitching([])
         setPitchingLoadingData(true)

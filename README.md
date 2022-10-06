@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Baseball React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Basic Info
 
-## Available Scripts
+The project is built using Python 3 and React 18.2.0.
 
-In the project directory, you can run:
+The Python libraries being used are: FastAPI, PyBaseball, Uvicorn and Pandas.
+The React libraries included are Axios, React-Bootstrap, React-CSV and React-Router.
 
-### `npm start`
+## Installation Info to Use Locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Python
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Python Installation
+If you don't have Python on your computer, go to https://www.python.org/downloads/ and download the latest version of Python 3
 
-### `npm test`
+Once python is installed, run this command in your command prompt to install all of the needed libraries: pip install -r requirements.txt. Make sure that your command prompt is in the folder where the project files are stored.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Launching FastAPI
+After installing Python libraries, run the following commands in the command prompt to launch the FastAPI app. Once again, you must be in the root project folder.
 
-### `npm run build`
+cd python_api
+uvicorn baseball_api:app --reload
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To test the api, go to this url in your browser: http://127.0.0.1:8000/api/v1/franchises. If it launched properly, you should see a list of MLB franchises.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Installing Node.js
+If you don't have Node.js on your computer, go to: https://nodejs.org/en/ and download the recommended version.
 
-### `npm run eject`
+#### Installing React and Libraries
+The first time you try and run the project you must run this command to install all of the needed libraries: npm i. Make sure that your command prompt is in the folder where the project files are stored.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Starting React Project
+To launch the React project, make sure the FastAPI app is running (see above for instructions) and in another command prompt run this command: npm start.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Current Available Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+View basic batting and pitching data for a team in a given year
+View basic batting and pitching data for a player over their career
+Export a table to a CSV
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Plannned Features
+Create graphs from data tables

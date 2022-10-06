@@ -1,38 +1,5 @@
 from pybaseball import teams, playerid_lookup
 
-### Dictionary of Franchise Abbreviations for Team Pages
-abbreviations = {
-    "ARI": "Arizona Diamondbacks",
-    "ATL": "Atlanta Braves",
-    "BAL": "Baltimore Orioles",
-    "BOS": "Boston Red Sox",
-    "CHC": "Chicago Cubs",
-    "CHW": "Chicago White Sox",
-    "CIN": "Cincinnati Reds", 
-    "CLE": "Cleveland Guardians",
-    "DET": "Detroit Tigers",
-    "HOU": "Houston Astros",
-    "KCR": "Kansas City Royals",
-    "ANA": "Los Angeles Angels",
-    "LAD": "Los Angeles Dodgers",
-    "FLA": "Miami Marlins",
-    "MIL": "Milwaukee Brewers",
-    "MIN": "Minnesota Twins",
-    "NYM": "New York Mets",
-    "NYY": "New York Yankees",
-    "OAK": "Oakland Athletics",
-    "PHI": "Philadelphia Phillies",
-    "PIT": "Pittsburgh Pirates",
-    "SDP": "San Diego Padres",
-    "SEA": "Seattle Mariners",
-    "SFG": "San Francisco Giants",
-    "STL": "St Louis Cardinals",
-    "TBD": "Tampa Bay Rays",
-    "TEX": "Texas Rangers",
-    "TOR": "Toronto Blue Jays",
-    "WSN": "Washington Nationals",
-}
-
 ### Types for Columns in Batting Table
 batting_int_cols = ['Year', 'Age', 'G', 'PA', 'AB', 'R', 'H', '2B', '3B', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'OPS+', 'TB', 'GDP', 'HBP', 'SH', 'SF', 'IBB']
 batting_float_cols = ['BA', 'OBP', 'SLG', 'OPS']
@@ -130,6 +97,13 @@ def get_team_name(franchiseID, year):
             return ""
 
 def get_player_id(name):
+    """
+    Returns the player id of a player given their name
+
+    @param name name of player
+
+    @return player id of the player
+    """
     name_list = name.split(" ")
     return playerid_lookup(last = name_list[1], first = name_list[0], fuzzy = True).iloc[0]["key_bbref"]
 

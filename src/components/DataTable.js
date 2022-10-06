@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
 
 import Container from 'react-bootstrap/Container'
 import Row  from 'react-bootstrap/Row'
@@ -204,10 +204,10 @@ function DataTable({data, visibleCols, filterCol, sortCol, linkCol}) {
                                     onChange={event => onFilterChange(event)}/>
                             </InputGroup>
                         </Col>
-                        <Col xs={2}>
+                        <Col xs={3}>
                             <CSVLink headers={visibleColumns} data={csvDataEntries} onClick={event => getCSVData(event)}
                                 filename={"baseballData.csv"} className="btn btn-primary">
-                                Download me
+                                Export Table to CSV
                             </CSVLink>
                         </Col>
                     </Row>

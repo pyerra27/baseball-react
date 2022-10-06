@@ -1,7 +1,10 @@
 import axios from 'axios'
 
 /* base url for api calls */
-const API_URL = "http://127.0.0.1:8000/api/v1"
+const LOCAL_URL = "http://127.0.0.1:8000/"
+const PROD_URL = "http://44.201.195.87/"
+
+const API_URL = PROD_URL + "api/v1"
 
 class BaseballService {
 

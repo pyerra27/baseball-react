@@ -27,17 +27,14 @@ function PlayerData() {
     /* boolean to see if pitching data is loading */
     const [pitchingLoadingData, setPitchingLoadingData] = useState(true)
 
-    /* player name */
-    const [playerName, setPlayerName] = useState("")
-
     /* player id from the url */
-    const {playerID} = useParams()
+    const {playerName} = useParams()
 
     /**
      * On component load, get the data needed for the page
      */
     useEffect(() => {
-        getData(playerID)
+        getData(playerName)
     }, [])
 
     /**
@@ -45,10 +42,8 @@ function PlayerData() {
      * 
      * @param playerID id of player
      */
-    const getData = (playerID) => {
-        getPlayerName(playerID)
-        getPlayerBatting(playerID)
-        getPlayerPitching(playerID)
+    const getData = (playerName) => {
+        getPlayerID(playerName)
     }
 
     /**
@@ -57,9 +52,12 @@ function PlayerData() {
      *
      * @param playerID id of player
      */
-    const getPlayerName = (playerID) => {
-        BaseballService.getPlayerName(playerID).then(response => {
-            setPlayerName(response.data["name"])
+    const getPlayerID = (playerName) => {
+        console.log(playerName)
+        BaseballService.getPlayerID(playerName).then(response => {
+            console.log(response.data)
+            getPlayerBatting(response.data["id"])
+            getPlayerPitching(response.data["id"])
         })
     }
 
@@ -104,7 +102,7 @@ function PlayerData() {
     return (
         <Container fluid>
             {
-                playerID === "" ? ("No player selected") : (
+                playerName === "" ? ("No player selected") : (
                     <>
                     <h1>{playerName}</h1>
                     <Tab.Container id="player-tabs" defaultActiveKey="batting">

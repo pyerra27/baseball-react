@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 /* base url for api calls */
-const API_URL = "http://127.0.0.1:8000/api/v1"
+const API_URL = "http://44.202.4.6/api/v1"
 
 class BaseballService {
 
@@ -66,6 +66,17 @@ class BaseballService {
      */
     getPlayerName(playerID) {
         return axios.get(API_URL + "/playername/" + playerID)
+    }
+
+    /**
+     * Uses GET playerid API endpoint to return the id of the
+     * player by their name
+     * 
+     * @param playerName name of player
+     * @returns id of player
+     */
+    getPlayerID(playerName) {
+        return axios.get(API_URL + "/playerid/" + playerName)
     }
 
     /**

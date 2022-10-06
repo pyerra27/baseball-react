@@ -16,7 +16,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/team/:teamID" element={<TeamData />} />
-                <Route path="/player/:playerID" element={<PlayerData />} />
+                <Route path="/player/:playerName" element={<PlayerData />} />
             </Routes>
       </Router> 
       </>  

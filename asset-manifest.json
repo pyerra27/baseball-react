@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/baseball-react/static/css/main.29cd549e.css",
+    "main.js": "/baseball-react/static/js/main.3f715860.js",
+    "static/js/787.7ff9852e.chunk.js": "/baseball-react/static/js/787.7ff9852e.chunk.js",
+    "index.html": "/baseball-react/index.html",
+    "main.29cd549e.css.map": "/baseball-react/static/css/main.29cd549e.css.map",
+    "main.3f715860.js.map": "/baseball-react/static/js/main.3f715860.js.map",
+    "787.7ff9852e.chunk.js.map": "/baseball-react/static/js/787.7ff9852e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29cd549e.css",
+    "static/js/main.3f715860.js"
+  ]
+}

@@ -97,7 +97,7 @@ def team_batting(team_id: str = Path(None, description = "team ids can be found 
             team_batting[col] = team_batting[col].apply(float)
 
     ### Add the player id to the data to create link to player page
-    team_batting["playerID"] = team_batting.apply(lambda row: get_player_id(row["Name"]), axis = 1)
+    ### team_batting["playerID"] = team_batting.apply(lambda row: get_player_id(row["Name"]), axis = 1)
 
     ### return json
     df_json = team_batting.to_json(orient="records")
@@ -140,7 +140,7 @@ def team_pitching(team_id: str = Path(None, description = "team ids can be found
             team_pitching[col] = team_pitching[col].apply(float)
 
     ### Add the player id to the data to create link to player page
-    team_pitching["playerID"] = team_pitching.apply(lambda row: get_player_id(row["Name"]), axis = 1)
+    ### team_pitching["playerID"] = team_pitching.apply(lambda row: get_player_id(row["Name"]), axis = 1)
 
     ### return json
     df_json = team_pitching.to_json(orient="records")

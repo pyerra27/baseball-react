@@ -161,6 +161,19 @@ def player_name(player_id: str = Path(None, description = "player id")):
 
     return {"name": full_name}
 
+@app.get(api_url + "playerid/{player_name}")
+def player_name(player_name: str = Path(None, description = "player id")):
+    """
+    Gets the player id given their name
+
+    @param player_name name of player
+
+    @return json object with player id
+    """
+    playerID = get_player_id(player_name)
+
+    return {"id": playerID}
+
 @app.get(api_url + "playerbatting/{player_id}")
 def player_batting(player_id: str = Path(None, description = "player id")):
     """

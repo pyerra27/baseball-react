@@ -113,7 +113,7 @@ function TeamData() {
 
         BaseballService.getTeamBatting(teamID, year).then(response => {
             response.data.forEach(player => {
-                player["Name"] = <a href={"/player/" + player["playerID"]}>{player["Name"]}</a>
+                player["Name"] = <a href={"/player/" + player["Name"]}>{player["Name"]}</a>
             });
             setTeamBatting(response.data)
             setBattingLoadingData(false)
@@ -136,7 +136,7 @@ function TeamData() {
 
         BaseballService.getTeamPitching(teamID, year).then(response => {
             response.data.forEach(player => {
-                player["Name"] = <a href={"/player/" + player["playerID"]}>{player["Name"]}</a>
+                player["Name"] = <a href={"/player/" + player["Name"]}>{player["Name"]}</a>
             });
             setTeamPitching(response.data)
             setPitchingLoadingData(false)

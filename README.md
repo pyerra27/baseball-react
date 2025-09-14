@@ -38,7 +38,9 @@ To launch the React project, make sure the FastAPI app is running (see above for
 ## Current Available Features
 
 View basic batting and pitching data for a team in a given year
+
 View basic batting and pitching data for a player over their career
+
 Export a table to a CSV
 
 ## Plannned Features
